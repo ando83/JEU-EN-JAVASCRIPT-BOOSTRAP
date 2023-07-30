@@ -1,0 +1,139 @@
+/****Général****/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  background-color:rgba(50, 50, 50, .1);
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+/******JOUEURS*******/
+.player{
+  position: relative;
+  font-size: 1.8em;
+  text-transform: uppercase;
+}
+
+.score{
+  font-size: 3em;
+  font-weight: 200;
+  color: #EB4D4C;
+}
+
+.active .player::after {
+  content: "\2022";
+  font-size: 50px;
+  color: #EB4D4C;
+  position: absolute; 
+  top: 30px;
+}
+
+.current-score{
+  color: #fff;
+  font-size: 2em;
+}
+
+.current-label {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  color: black;
+} 
+
+/***Boutons***/
+
+.container-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} 
+
+ button {
+  position: absolute;
+  width: 200px;
+  color: #555;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.btn-new-game {
+  top: 40px;
+}
+
+.btn-roll-dice {
+  top: 400px;
+}
+
+.btn-hold {
+  top: 500px;
+}
+
+i {
+  color: #EB4D4C;
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.5em;
+  vertical-align: text-top;
+  margin-top: -5px;
+}
+
+/***Image***/
+
+ .img-dice{
+  position: absolute;
+  top: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+} 
+
+/*****LES MÉDIQUERIES*****/
+@media screen and (max-width: 769px){
+  .playerContainer-0-panel{
+    margin-bottom: 500px;
+  }
+
+  .img-dice{
+    top: 600px;
+  }
+
+  .btn-roll-dice {
+    top: 800px;
+  }
+  
+  .btn-hold {
+    top: 900px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
