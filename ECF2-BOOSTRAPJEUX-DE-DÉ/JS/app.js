@@ -53,7 +53,7 @@ document.querySelector('.btn-hold').addEventListener('click',function(){
    //Mise à jour du score du joueur actif.
     document.getElementById('score-'+activePlayer).textContent = scorePlayer[activePlayer];
 
-    if(scorePlayer[activePlayer] >= 10){
+    if(scorePlayer[activePlayer] >= 100){
       //Variables gagnant ou perdant
       const winnerIndex = activePlayer;
       //Si activePlayer n'est pas === 0, joueur 2 gagne et joueur 1 perd
