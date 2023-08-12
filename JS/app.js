@@ -1,5 +1,53 @@
 //Déclarer dans un tableau les noms des joueurs
 const playerNames = ['PLAYER 1', 'PLAYER 2'];
+
+//Function pour modifier le nom des jouers
+function editNames() {
+
+  Swal.fire({
+    title: 'Le nom du JOUEUR 1',
+    input: 'text',
+    inputPlaceholder: 'JOUEUR 1',
+    buttons: true,
+    padding: '2.4em',
+    confirmButtonColor: '#3085d6',
+    showCloseButton: true,
+    inputValidator: (value) => {
+      if (!value) {
+        return 'Veuillez entrer un nom pour le Joueur 1';
+      }
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const newName1 = result.value;
+      Swal.fire({
+        title: 'Le nom du JOUEUR 2',
+        input: 'text',
+        inputPlaceholder: 'JOUEUR 2',
+        buttons: true,
+        confirmButtonColor: '#3085d6',
+        padding: '2.4em',
+        showCloseButton: true,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'Veuillez entrer un nom pour le Joueur 2';
+          }
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const newName2 = result.value;
+
+          playerNames[0] = newName1;
+          document.getElementById("player-0").textContent = playerNames[0];
+
+          playerNames[1] = newName2;
+          document.getElementById("player-1").textContent = playerNames[1];
+        }
+      });
+    }
+  });
+  
+}
 //Déclaration les variables et remise à zéro 
 let scorePlayer, activePlayer, roundScore, gamePlaying;
 init();
