@@ -12,3 +12,5 @@ Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND ve
 
 -Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
 Le premier joueur qui atteint les 100 points sur global gagne le jeu.
+
+lien du site : https://ando83.github.io/JEU-EN-JAVASCRIPT-BOOSTRAP/
