@@ -82,6 +82,11 @@ a{
   top: 500px;
 }
 
+.btn-edit{
+  top: 10px;
+  right: 10px;
+}
+
 i {
   color: #EB4D4C;
   display: inline-block;
