@@ -1,7 +1,7 @@
 //Déclarer dans un tableau les noms des joueurs
 const playerNames = ['PLAYER 1', 'PLAYER 2'];
 
-//Function pour modifier le nom des jouers
+//Function pour modifier le nom des joueurs
 function editNames() {
 
   Swal.fire({
@@ -48,8 +48,10 @@ function editNames() {
   });
   
 }
+
 //Déclaration les variables et remise à zéro 
 let scorePlayer, activePlayer, roundScore, gamePlaying;
+stopAnimation();
 init();
 scorePlayer = [0,0];
 activePlayer = 0;// indicateur du joueur actif, 0 premier joueur et 1 deuxième joueur
@@ -101,16 +103,20 @@ document.querySelector('.btn-hold').addEventListener('click',function(){
    //Mise à jour du score du joueur actif.
     document.getElementById('score-'+activePlayer).textContent = scorePlayer[activePlayer];
 
-    if(scorePlayer[activePlayer] >= 100){
+    if(scorePlayer[activePlayer] >= 10){
+      
       //Variables gagnant ou perdant
       const winnerIndex = activePlayer;
       //Si activePlayer n'est pas === 0, joueur 2 gagne et joueur 1 perd
       const loserIndex = activePlayer === 0 ? 1 : 0;
-
+      
       //Affiche le gagnant
       const winnerName = document.getElementById('player-' + winnerIndex);
       winnerName.textContent = playerNames[winnerIndex] + " WINNER";
       winnerName.style.color = '#3CB371';
+      setAnimationWin();
+      let audio = new Audio("sounds/cheer2.mp3");
+                  audio.play();
   
       //Affiche le nom du joueur perdant
       const loserName = document.getElementById('player-' + loserIndex);
@@ -153,6 +159,7 @@ let newScore = [0, 0]; // Ajouter une nouvelle variable pour stocker les scores 
 //RESET GLOBAL (function init)
 function init(){
   //Réinitialiser à zéro
+  stopAnimation();
   scorePlayer = [0,0];
   activePlayer = 0;
   roundScore = 0;
@@ -160,8 +167,6 @@ function init(){
 
   document.querySelector('.img-dice').style.display ='none';
 
-  //Réintialiser les scores
-  resetScores();
 
   //Réintialiser les noms des joueurs
   function updatePlayers(){  
@@ -192,3 +197,28 @@ function init(){
   document.querySelector(".playerContainer-0-panel").classList.add("active");
 
 };
+
+//fonction pr les animations confetti quand on gagne
+function setAnimationWin(){
+  let animateDiv = document.getElementById("allconfettis");
+  animateDiv.innerHTML = "";
+
+  for(let i = 0; i < 100; i++){
+    let confeti = document.createElement("div");
+    confeti.classList.add("confetti");
+    confeti.style.left =getRandomArbitrary(0,100)+'%';
+    confeti.style.animationDelay = 50*i+"ms";
+    confeti.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);/*pr creer des couleurs aleatoires */
+    animateDiv.appendChild(confeti);/*indique q confeti est un enfant de animateDiv */
+  }
+}
+
+//fonction pr stopper l animation
+function stopAnimation(){
+let animateDiv = document.getElementById("allconfettis");
+animateDiv.innerHTML = ""; /*pr vider la page html soit le allconfettis */
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
