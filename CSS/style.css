@@ -18,16 +18,36 @@ a{
 }
 
 /******JOUEURS*******/
+
 .player{
   position: relative;
   font-size: 1.8em;
   text-transform: uppercase;
+  font-weight: 950;
+  letter-spacing: 2px;
 }
 
 .score{
   font-size: 3em;
-  font-weight: 200;
+  font-weight: 700;
   color: #EB4D4C;
+}
+
+.playerContainer-0-panel, .playerContainer-1-panel {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+}
+
+.active {
+  background-color: rgba(247, 247, 247);
+}
+.active .player {
+  font-weight: 300;
 }
 
 .active .player::after {
@@ -41,6 +61,7 @@ a{
 .current-score{
   color: #fff;
   font-size: 2em;
+ 
 }
 
 .current-label {
@@ -106,26 +127,109 @@ i {
   align-items: center;
   justify-content: center;
   height: 100px;
+  z-index: 1;
 } 
+
+/* Animation à la fin du jeu */
+.confetti{
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  animation: falling 5s infinite;
+  position: absolute;
+  top: -20px;
+  z-index: 2;
+}
+
+#allconfettis {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+@keyframes falling{
+  0%{
+    top: -20px;
+    transform: rotate(180deg);
+  }
+  20%{
+    transform: translateX(100px) rotate(360deg);
+  }
+  40%{
+    transform: translateX(40px) rotate(180deg);
+    
+  }
+  50%{
+    opacity: 1;
+    transform: translateX(20px) rotate(360deg);
+
+  }
+  70%{
+    opacity: 0.2;
+    transform: translateX(30px) rotate(180deg);
+  }
+  100%{
+    opacity: 0;
+    top: 100%;
+    transform: translateX(20px) rotate(360deg);
+  }
+}
 
 /*****LES MÉDIQUERIES*****/
 @media screen and (max-width: 769px){
   .playerContainer-0-panel{
-    margin-bottom: 500px;
-  }
+    margin-bottom: 400px;
+  } 
 
+  .btn-new-game{
+    top: 70px;
+  }
   .img-dice{
-    top: 600px;
+    top: 750px;
   }
 
   .btn-roll-dice {
-    top: 800px;
+    top: 950px;
   }
   
   .btn-hold {
-    top: 900px;
+    top: 1060px;
   }
+
+  #container-player{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+
+  #player-0, #player-1{
+    margin-bottom: -20px;
+  }
+
+  .playerContainer-0-panel, .playerContainer-1-panel{
+    width: 100%;
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
