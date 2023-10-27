@@ -14,3 +14,4 @@ Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND ve
 Le premier joueur qui atteint les 100 points sur global gagne le jeu.
 
 
+https://ando83.github.io/JEU-EN-JAVASCRIPT-BOOSTRAP/
